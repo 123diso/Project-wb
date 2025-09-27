@@ -1,0 +1,7 @@
+[
+    { "id": 1, "name": "iPhone usado", "image": "/images/iphone.jpg" },
+    { "id": 2, "name": "Cámara Nikon", "image": "/images/camera.jpg" },
+    { "id": 3, "name": "Anillo de plata", "image": "/images/ring.jpg" },
+    { "id": 4, "name": "Peluche oso", "image": "/images/plush.jpg" },
+    { "id": 5, "name": "Rueda de bici", "image": "/images/wheel.jpg" }
+]

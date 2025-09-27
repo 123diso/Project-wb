@@ -1,0 +1,33 @@
+.suggested {
+    padding: 18px 20px 22px;
+}
+
+.suggested__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 8%;
+    margin-bottom: 6px;
+}
+
+.suggested__title {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #2f3e2f;
+    font-weight: 700;
+}
+
+.suggested__row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 6px 2px 4px;
+}
+
+@media (max-width: 480px) {
+    .suggested__title {
+        font-size: 1.5rem;
+    }
+}
