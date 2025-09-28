@@ -31,3 +31,18 @@
         font-size: 1.5rem;
     }
 }
+/* Contenedor del buscador */
+.searchbar-container {
+    display: flex;
+    justify-content: flex-start; /* alineado a la izquierda */
+    margin-bottom: 20px; /* espacio con lo demás */
+}
+
+/* Cards sugeridas */
+.suggested__row {
+    display: flex;
+    justify-content: center; /* las cards siguen centradas */
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 6px 2px 4px;
+}

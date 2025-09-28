@@ -53,7 +53,7 @@ const MapPage: React.FC = () => {
                 <div className="map-section">
                     <div className="map-section__header">
                         <h2 className="map-section__title">Puntos Dandi</h2>
-                        <Button to="/puntos">Ver más</Button>
+                        <Button to="/puntos">sur</Button>
                     </div>
                     {regular.map((p) => (
                         <PointCard key={p.id} point={p} />
