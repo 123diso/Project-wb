@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AuthForm } from '../components/AuthForm'
-import DandiLogo from '../assets/loginlogo.png'
-import LargeDandiLogo from '../assets/largeloginlogo.png'
-
+import { AuthForm } from '../../components/AuthForm/AuthForm'
+import DandiLogo from '../../assets/loginlogo.png'
+import LargeDandiLogo from '../../assets/largeloginlogo.png'
+import './LoginPage.css'
 
 export const LoginPage: React.FC = () => {
   return (

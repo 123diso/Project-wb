@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AuthForm } from '../components/AuthForm'
-import DandiLogo from '../assets/registerlogo.png'
+import { AuthForm } from '../../components/AuthForm/AuthForm'
+import DandiLogo from '../../assets/registerlogo.png'
+import './RegisterPage.css'
 
 export const RegisterPage: React.FC = () => {
   return (

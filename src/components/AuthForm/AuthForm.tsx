@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Input } from './Input'
-import { useAuthActions } from '../hooks/useAuth'
-import { EmailConfirmation } from './EmailConfirmation'
+import { Input } from '../Input/Input'
+import { useAuthActions } from '../../hooks/useAuth'
+import { EmailConfirmation } from '../EmailConfirmation/EmailConfirmation'
+import './AuthForm.css'
 
 interface AuthFormProps {
   mode: 'login' | 'register'

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/useAuthContext'
-import { Navbar } from '../components/Navbar'
+import { useAuth } from '../../context/useAuthContext'
+import { Navbar } from '../../components/Navbar/Navbar'
+import './ProfilePage.css'
 
 export const ProfilePage: React.FC = () => {
   const { user, signOut } = useAuth()
