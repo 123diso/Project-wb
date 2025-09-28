@@ -46,7 +46,6 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            icon="✉"
           />
         </div>
 
@@ -57,7 +56,6 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            icon="🔒"
           />
         </div>
 
@@ -70,7 +68,6 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
-                icon="👤"
               />
             </div>
 
@@ -81,7 +78,6 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                icon="👤"
               />
             </div>
 
@@ -92,7 +88,6 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
-                icon="🔒"
               />
             </div>
           </>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { AuthForm } from '../components/AuthForm'
-import DandiLogo from '../assets/dandi-logo.svg'
+import DandiLogo from '../assets/registerlogo.png'
 
 export const RegisterPage: React.FC = () => {
   return (
-    <div className="auth-page">
-      <div className="auth-container">
+    <div className="auth-page register-page">
+      <div className="auth-container register-container">
         <div className="logo-container">
           <img src={DandiLogo} alt="Dandi" className="logo-image" />
         </div>

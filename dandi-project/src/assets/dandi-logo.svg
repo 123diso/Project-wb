@@ -1,7 +1,0 @@
-<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <text x="10" y="28" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">D</text>
-  <text x="30" y="28" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#e6b88c">a</text>
-  <text x="45" y="28" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">ndi</text>
-  <!-- Línea decorativa bajo la 'a' -->
-  <line x1="35" y1="32" x2="45" y2="32" stroke="#e6b88c" stroke-width="2" stroke-linecap="round"/>
-</svg>
