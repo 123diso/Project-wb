@@ -5,6 +5,7 @@ import { useAuth } from './context/useAuthContext'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { Dashboard } from './pages/Dashboard'
+import { ProfilePage } from './pages/ProfilePage'
 import './App.css'
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -61,6 +62,30 @@ const AppRoutes: React.FC = () => {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/profile" 
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/map" 
+        element={
+          <ProtectedRoute>
+            <div>Mapa - En desarrollo</div>
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/categories" 
+        element={
+          <ProtectedRoute>
+            <div>Categorías - En desarrollo</div>
           </ProtectedRoute>
         } 
       />

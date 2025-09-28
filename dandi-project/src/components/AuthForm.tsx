@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Input } from './Input'
 import { useAuthActions } from '../hooks/useAuth'
+import { EmailConfirmation } from './EmailConfirmation'
 
 interface AuthFormProps {
   mode: 'login' | 'register'
@@ -13,6 +14,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [fullName, setFullName] = useState('')
   const [username, setUsername] = useState('')
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const { signIn, signUp, loading, error, clearError } = useAuthActions()
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,9 +29,17 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
       ? await signIn({ email, password })
       : await signUp({ email, password })
 
-    if (result.success && onSuccess) {
-      onSuccess()
+    if (result.success) {
+      if (mode === 'register') {
+        setShowConfirmation(true)
+      } else if (onSuccess) {
+        onSuccess()
+      }
     }
+  }
+
+  if (showConfirmation) {
+    return <EmailConfirmation />
   }
 
   return (
