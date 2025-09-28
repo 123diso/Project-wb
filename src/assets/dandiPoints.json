@@ -5,7 +5,9 @@
         "distance": "500 Mts",
         "newPosts": 10,
         "activeUsers": 20,
-        "type": "nearby"
+        "type": "nearby",
+        "logo": "/imgMap/imageLogoWhite.png",
+        "pin": "/imgMap/distance.png"
     },
     {
         "id": 2,
@@ -13,7 +15,9 @@
         "distance": "1.5 km",
         "newPosts": 3,
         "activeUsers": 4,
-        "type": "nearby"
+        "type": "nearby",
+        "logo": "/imgMap/imageLogoWhite.png",
+        "pin": "/imgMap/distance.png"
     },
     {
         "id": 3,
@@ -21,7 +25,9 @@
         "distance": "3.5 km",
         "newPosts": 2,
         "activeUsers": 12,
-        "type": "regular"
+        "type": "regular",
+        "logo": "/imgMap/imageLogo.png",
+        "pin": "/imgMap/distance.png"
     },
     {
         "id": 4,
@@ -29,7 +35,9 @@
         "distance": "5 km",
         "newPosts": 13,
         "activeUsers": 40,
-        "type": "regular"
+        "type": "regular",
+        "logo": "/imgMap/imageLogo.png",
+        "pin": "/imgMap/distance.png"
     },
     {
         "id": 5,
@@ -37,6 +45,8 @@
         "distance": "4 km",
         "newPosts": 6,
         "activeUsers": 2,
-        "type": "regular"
+        "type": "regular",
+        "logo": "/imgMap/imageLogo.png",
+        "pin": "/imgMap/distance.png"
     }
 ]

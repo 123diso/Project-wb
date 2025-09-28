@@ -55,4 +55,21 @@ export type DandiPoint = {
     newPosts: number
     activeUsers: number
     type: 'nearby' | 'regular'
+    logo: string
+    pin?: string
 }
+
+export type Category = {
+    id: number
+    name: string
+    image: string
+}
+
+//  CardItem
+export type CardData = Pick<CardItem, 'name' | 'image'>
+export type CardUIProps = {
+    onClick?: () => void
+    className?: string
+    showName?: boolean
+}
+export type SuggestedCardProps = CardData & CardUIProps

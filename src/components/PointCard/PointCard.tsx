@@ -6,6 +6,7 @@ type Props = { point: DandiPoint }
 
 const PointCard: React.FC<Props> = ({ point }) => {
     const isNearby = point.type === 'nearby'
+
     return (
         <article
             className={`point ${isNearby ? 'point--nearby' : 'point--regular'}`}
@@ -13,8 +14,9 @@ const PointCard: React.FC<Props> = ({ point }) => {
             <div className="point__left">
                 <img
                     className="point__logo"
-                    src="/imgNav/imgDandi.png"
-                    alt="Dandi"
+                    src={point.logo}
+                    alt={point.name}
+                    loading="lazy"
                 />
                 <div className="point__text">
                     <h3 className="point__title">{point.name}</h3>
@@ -30,7 +32,12 @@ const PointCard: React.FC<Props> = ({ point }) => {
                 className="point__right"
                 aria-label={`Distancia ${point.distance}`}
             >
-                <img className="point__pin" src="/imgNav/dehaze.png" alt="" />
+                <img
+                    className="point__pin"
+                    src={point.pin ?? '/imgMap/distance.png'}
+                    alt=""
+                    loading="lazy"
+                />
                 <span className="point__distance">{point.distance}</span>
             </div>
         </article>

@@ -61,10 +61,10 @@ const MapPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Panel derecho (mapa placeholder con tu estilo) */}
+            {/* Panel derecho (mapa) */}
             <section className="map-right">
                 <img
-                    src="/imgNav/imgBanner.png"
+                    src="/imgMap/imgBanner.png"
                     alt=""
                     className="map-placeholder"
                 />

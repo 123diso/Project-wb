@@ -1,12 +1,6 @@
 import React from 'react'
 import './SuggestedCard.css'
-import type { CardItem } from '../../types'
-
-export type SuggestedCardProps = Pick<CardItem, 'name' | 'image'> & {
-    onClick?: () => void
-    className?: string
-    showName?: boolean // si true, muestra el nombre debajo de la imagen
-}
+import type { SuggestedCardProps } from '../../types'
 
 const SuggestedCard: React.FC<SuggestedCardProps> = ({
     name,
@@ -20,6 +14,15 @@ const SuggestedCard: React.FC<SuggestedCardProps> = ({
             className={`card ${className ?? ''}`}
             onClick={onClick}
             tabIndex={0}
+            role="button"
+            onKeyDown={(e) => {
+                if (!onClick) return
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    onClick()
+                }
+            }}
+            aria-label={showName ? name : undefined}
         >
             <img src={image} alt={name} className="card__img" />
             {showName && <p className="card__label">{name}</p>}

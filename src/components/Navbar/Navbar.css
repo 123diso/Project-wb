@@ -10,18 +10,11 @@
     left: 0;
 }
 
+/* Nav links */
 .navbar ul {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-/* logo */
-.navbar-brand h1 {
-    margin: 0;
-    font-size: 28px;
-    color: #f8f9fa;
-    font-weight: 800;
 }
 
 .navbar-nav {
@@ -46,58 +39,14 @@
     color: #ffffff;
     border-color: #f0f0e6;
 }
+
 .navbar-nav a.active {
     border: 1px solid #f0f0e6;
 }
 
+/* Íconos */
 .navbar-icons {
     display: flex;
     align-items: center;
     gap: 16px;
-}
-
-.navbar-icons img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-    filter: invert(90%);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.navbar-icons img:hover {
-    transform: scale(1.1);
-}
-
-.navbar-icons svg {
-    width: 24px;
-    height: 24px;
-    fill: #fff;
-}
-.navbar-icons svg:hover {
-    fill: #facc15;
-}
-
-.navbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.nav-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #fff;
-    -webkit-mask: var(--icon) no-repeat center / contain;
-    mask: var(--icon) no-repeat center / contain;
-    display: inline-block;
-    transition:
-        transform 0.2s ease,
-        background-color 0.2s ease;
-    cursor: pointer;
-}
-
-.nav-icon:hover {
-    transform: scale(1.1);
-    background-color: #f8f9da;
 }
