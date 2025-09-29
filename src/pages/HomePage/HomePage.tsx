@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import HeroBanner from '../../components/HeroBanner/HeroBanner'
 import SuggestedCard from '../../components/SuggestedCard/SuggestedCard'
@@ -8,7 +8,7 @@ import Button from '../../components/Button/Button'
 import type { CardItem } from '../../types'
 import suggestedItemsData from '../../assets/suggestedItems.json'
 import tradesItemsData from '../../assets/tradesItems.json'
-import productCardsData from '../../assets/productCards.json'
+import { supabase } from '../../supabaseClient'
 import './suggested.css'
 
 const suggestedItems: CardItem[] = suggestedItemsData
@@ -24,10 +24,51 @@ type Product = {
   image?: string
 }
 
-const products: Product[] = productCardsData as unknown as Product[]
-
 const HomePage: React.FC = () => {
   const [query, setQuery] = useState('')
+  const [products, setProducts] = useState<Product[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        const { data, error } = await supabase
+          .from('user_posts')
+          .select('*')
+          .order('id', { ascending: true })
+
+        if (error) throw error
+        type DbPostRow = {
+          id: number
+          title?: string
+          tittle?: string
+          category?: string
+          condition?: string
+          location?: string
+          image?: string | null
+        }
+        const normalized = ((data ?? []) as DbPostRow[]).map((row) => ({
+          id: row.id,
+          title: (row.title ?? row.tittle ?? '').toString(),
+          category: (row.category ?? '').toString(),
+          condition: (row.condition ?? '').toString(),
+          location: (row.location ?? '').toString(),
+          image: row.image ?? undefined,
+        }))
+        setProducts(normalized)
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : 'Error desconocido'
+        setError(msg)
+        console.error('[Supabase user_posts error]:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchProducts()
+  }, [])
 
   const filteredSuggested = useMemo(
     () => suggestedItems.filter(i =>
@@ -46,9 +87,9 @@ const HomePage: React.FC = () => {
   // Productos “Según tus intereses”
   const filteredProducts = useMemo(
     () => products.filter(p =>
-      p.title.toLowerCase().includes(query.toLowerCase())
+      p.title?.toLowerCase().includes(query.toLowerCase())
     ),
-    [query]
+    [products, query]
   )
 
   return (
@@ -90,19 +131,30 @@ const HomePage: React.FC = () => {
           <Button to="/productos">Ver más →</Button>
         </header>
 
-        <div className="products-section__list">
-          {filteredProducts.map((product: Product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              category={product.category}
-              condition={product.condition}
-              location={product.location}
-              image={product.image}
-            />
-          ))}
-        </div>
+        {loading && (
+          <div className="products-section__list">Cargando productos...</div>
+        )}
+        {error && !loading && (
+          <div className="products-section__list">Error: {error}</div>
+        )}
+        {!loading && !error && (
+          <div className="products-section__list">
+            {filteredProducts.length === 0 && (
+              <div style={{ padding: 12 }}>No hay productos para mostrar.</div>
+            )}
+            {filteredProducts.map((product: Product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                category={product.category}
+                condition={product.condition}
+                location={product.location}
+                image={product.image}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Banner del Mapa */}

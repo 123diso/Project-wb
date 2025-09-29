@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSaved } from '../../contexts/SavedContext'
+import { useSaved } from '../../context/SavedContext'
 import './SaveButton.css'
 
 type SaveButtonProps = {
