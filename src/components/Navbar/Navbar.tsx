@@ -1,72 +1,63 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../context/useAuthContext'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
+import type { NavIcon } from '../../types'
+import navIconsData from '../../assets/navIcons.json'
 
-export const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { user, signOut } = useAuth()
-  const navigate = useNavigate()
+const navIcons: NavIcon[] = navIconsData
 
-  const handleSignOut = async () => {
-    await signOut()
-    navigate('/login')
-  }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-brand">
-          <Link to="/dashboard" className="navbar-logo">
-            Dandi
-          </Link>
-        </div>
-        
-        <div className="navbar-menu">
-          <Link to="/dashboard" className="navbar-link">
-            Home
-          </Link>
-          <Link to="/map" className="navbar-link">
-            Mapa
-          </Link>
-          <Link to="/categories" className="navbar-link">
-            Categorías
-          </Link>
-        </div>
-        
-        <div className="navbar-actions">
-          <Link to="/profile" className="navbar-user">
-            <div className="user-avatar">
-              {user?.email?.charAt(0).toUpperCase()}
+const Navbar: React.FC = () => {
+    return (
+        <nav className="navbar">
+            <div className="navbar-brand">
+                <img
+                    src="/imgDandi.png"
+                    alt="Dandi logo"
+                    className="navbar-logo"
+                />
             </div>
-          </Link>
-          <button 
-            className="navbar-toggle"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-            <span className="hamburger-line"></span>
-          </button>
-        </div>
-        
-        {isMenuOpen && (
-          <div className="navbar-mobile-menu">
-            <Link to="/dashboard" className="mobile-link">Home</Link>
-            <Link to="/map" className="mobile-link">Mapa</Link>
-            <Link to="/categories" className="mobile-link">Categorías</Link>
-            <Link to="/profile" className="mobile-link">Perfil</Link>
-            <button onClick={handleSignOut} className="mobile-signout">
-              Cerrar sesión
-            </button>
-          </div>
-        )}
-      </div>
-    </nav>
-  )
+
+            <ul className="navbar-nav">
+                <li>
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            isActive ? 'active' : undefined
+                        }
+                    >
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/mapa"
+                        className={({ isActive }) =>
+                            isActive ? 'active' : undefined
+                        }
+                    >
+                        Mapa
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/categorias"
+                        className={({ isActive }) =>
+                            isActive ? 'active' : undefined
+                        }
+                    >
+                        Categorías
+                    </NavLink>
+                </li>
+            </ul>
+
+            <div className="navbar-icons">
+                {navIcons.map(({ id, src, alt }) => (
+                    <img key={id} src={src} alt={alt} />
+                ))}
+            </div>
+        </nav>
+    )
 }
+
+export default Navbar
