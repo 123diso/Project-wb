@@ -4,7 +4,7 @@ import './ProductCard.css'
 import SaveButton from '../SaveButton/SaveButton'
 
 type ProductCardProps = {
-  id: number
+  id: number | string
   title: string
   category: string
   condition: string

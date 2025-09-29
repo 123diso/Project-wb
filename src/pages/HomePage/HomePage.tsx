@@ -37,32 +37,14 @@ const HomePage: React.FC = () => {
         setError(null)
         const { data, error } = await supabase
           .from('user_posts')
-          .select('*')
+          .select('id,title,category,condition,location,image')
           .order('id', { ascending: true })
 
         if (error) throw error
-        type DbPostRow = {
-          id: number
-          title?: string
-          tittle?: string
-          category?: string
-          condition?: string
-          location?: string
-          image?: string | null
-        }
-        const normalized = ((data ?? []) as DbPostRow[]).map((row) => ({
-          id: row.id,
-          title: (row.title ?? row.tittle ?? '').toString(),
-          category: (row.category ?? '').toString(),
-          condition: (row.condition ?? '').toString(),
-          location: (row.location ?? '').toString(),
-          image: row.image ?? undefined,
-        }))
-        setProducts(normalized)
+        setProducts((data ?? []) as unknown as Product[])
       } catch (err) {
         const msg = err instanceof Error ? err.message : 'Error desconocido'
         setError(msg)
-        console.error('[Supabase user_posts error]:', err)
       } finally {
         setLoading(false)
       }
@@ -139,9 +121,6 @@ const HomePage: React.FC = () => {
         )}
         {!loading && !error && (
           <div className="products-section__list">
-            {filteredProducts.length === 0 && (
-              <div style={{ padding: 12 }}>No hay productos para mostrar.</div>
-            )}
             {filteredProducts.map((product: Product) => (
               <ProductCard
                 key={product.id}

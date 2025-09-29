@@ -1,79 +1,25 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/useAuthContext'
+import { useSaved } from '../../contexts/SavedContext'
+import ProductCard from '../../components/ProductCard/ProductCard'
 import './ProfilePage.css'
 
 export const ProfilePage: React.FC = () => {
   const { user, signOut } = useAuth()
   const navigate = useNavigate()
-  const [activeTab, setActiveTab] = useState('all')
+  const [activeTab, setActiveTab] = useState<'guardados' | 'posts'>('guardados')
+  const { saved } = useSaved()
 
   const handleSignOut = async () => {
     await signOut()
     navigate('/login')
   }
 
-  const handleEdit = () => {
-    // Lógica para editar perfil
-    console.log('Edit profile')
-  }
+  const handleEdit = () => {}
+  const handleMessage = () => {}
 
-  const handleMessage = () => {
-    // Lógica para enviar mensaje
-    console.log('Send message')
-  }
-
-  // Datos de ejemplo para los items
-  const userItems = [
-    {
-      id: 1,
-      title: "Playstation 5",
-      category: "Electrónica",
-      status: "Nuevo",
-      timeAgo: "2hrs",
-      image: "/api/placeholder/200/200"
-    },
-    {
-      id: 2,
-      title: "Ollas",
-      category: "Utensilios",
-      status: "Usado",
-      timeAgo: "1d",
-      image: "/api/placeholder/200/200"
-    },
-    {
-      id: 3,
-      title: "Bicicleta",
-      category: "Deporte",
-      status: "Bueno",
-      timeAgo: "3d",
-      image: "/api/placeholder/200/200"
-    },
-    {
-      id: 4,
-      title: "Computador",
-      category: "Electrónica",
-      status: "Nuevo",
-      timeAgo: "1w",
-      image: "/api/placeholder/200/200"
-    },
-    {
-      id: 5,
-      title: "Pesas",
-      category: "Deporte",
-      status: "Usado",
-      timeAgo: "2w",
-      image: "/api/placeholder/200/200"
-    },
-    {
-      id: 6,
-      title: "Televisor",
-      category: "Electrónica",
-      status: "Bueno",
-      timeAgo: "1m",
-      image: "/api/placeholder/200/200"
-    }
-  ]
+  const savedList = Object.values(saved.products)
 
   return (
     <div className="profile-page">
@@ -114,38 +60,46 @@ export const ProfilePage: React.FC = () => {
           </div>
         </div>
         
-        {/* Posts Section */}
+        {/* Tabs */}
         <div className="posts-section">
           <div className="posts-header">
-            <h2 className="posts-title">Post</h2>
+            <h2 className="posts-title">Perfil</h2>
             <div className="posts-tabs">
-              <button 
-                className={`tab ${activeTab === 'all' ? 'active' : ''}`}
-                onClick={() => setActiveTab('all')}
+              <button
+                className={`tab ${activeTab === 'guardados' ? 'active' : ''}`}
+                onClick={() => setActiveTab('guardados')}
               >
-                All Items
+                Guardados
+              </button>
+              <button
+                className={`tab ${activeTab === 'posts' ? 'active' : ''}`}
+                onClick={() => setActiveTab('posts')}
+                disabled
+              >
+                Mis Posts (pronto)
               </button>
             </div>
           </div>
-          
-          <div className="items-grid">
-            {userItems.map((item) => (
-              <div key={item.id} className="item-card">
-                <div className="item-image">
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className="item-content">
-                  <h3 className="item-title">{item.title}</h3>
-                  <p className="item-category">{item.category}</p>
-                  <p className="item-status">Estado: {item.status}</p>
-                  <p className="item-time">Publicado hace {item.timeAgo}</p>
-                </div>
-                <div className="item-bookmark">
-                  <span className="bookmark-icon">🔖</span>
-                </div>
-              </div>
-            ))}
-          </div>
+
+          {activeTab === 'guardados' && (
+            <div className="items-grid">
+              {savedList.length === 0 ? (
+                <p className="saved-empty">No has guardado ningún post.</p>
+              ) : (
+                savedList.map((p) => (
+                  <ProductCard
+                    key={String(p.id)}
+                    id={Number(p.id)}
+                    title={p.title}
+                    image={p.image}
+                    category={p.category ?? ''}
+                    condition={p.condition ?? ''}
+                    location={p.location ?? ''}
+                  />
+                ))
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

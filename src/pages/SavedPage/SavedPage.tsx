@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSaved } from '../../context/SavedContext'
+import { useSaved } from '../../contexts/SavedContext'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import './SavedPage.css'
 
@@ -24,7 +24,7 @@ const SavedPage: React.FC = () => {
             {list.map((p) => (
               <ProductCard
                 key={String(p.id)}
-                id={Number(p.id)}              // ProductCard espera number
+                id={p.id}
                 title={p.title}
                 image={p.image}
                 category={p.category ?? ''}
