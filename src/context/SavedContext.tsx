@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react'
 import { supabase } from '../supabaseClient'
-import { useAuth } from '../context/useAuthContext'
+import { useAuth } from './useAuthContext'
 
 export type SavedProduct = {
   id: number | string

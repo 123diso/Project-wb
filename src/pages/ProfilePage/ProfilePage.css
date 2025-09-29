@@ -152,17 +152,18 @@
 .tab {
   padding: 0.5rem 1rem;
   border: 1px solid #ddd;
-  background: white;
+  background: var(--white);
   color: #666;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: white;
 }
 
 .tab.active {
-  background-color: #007bff;
+  border-bottom-color: var(--white);
   color: white;
-  border-color: #007bff;
+  background: var(--orange-accent);
 }
 
 .tab:hover:not(.active) {

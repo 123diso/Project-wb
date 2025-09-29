@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/useAuthContext'
-import { useSaved } from '../../contexts/SavedContext'
+import { useSaved } from '../../context/SavedContext'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import './ProfilePage.css'
 
