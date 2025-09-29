@@ -1,5 +1,5 @@
 /* Variables de color */
-:root {
+:root { /* Usar estas variables de colores para el resto de la aplicación*/
   --dark-green: #283618;
   --medium-green: #4a7c59;
   --light-green: #6b8e6b;
@@ -35,15 +35,7 @@ body {
   flex-direction: column;
 }
 
-/* Páginas de autenticación */
-.auth-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--beige);
-  padding: 2rem;
-}
+
 
 /* Página de registro - centrada */
 .register-page {
@@ -65,7 +57,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  gap: 4rem;
+  gap: 1rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -114,15 +106,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.logo-image {
-  height: 80px;
-  width: auto;
-}
 
-.logo-image-large {
-  height: 100px;
-  width: auto;
-}
 
 /* Logo del formulario */
 .form-logo-container {
@@ -217,18 +201,7 @@ body {
 }
 
 /* Mensaje de bienvenida */
-.welcome-message {
-  text-align: center;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--orange-accent);
-}
 
-.welcome-message p {
-  color: var(--white);
-  font-size: 1.1rem;
-  margin: 0 4rem 0 4rem;
-}
 
 .auth-form-container {
   background: transparent;
@@ -973,32 +946,7 @@ body {
     padding: 1rem;
   }
   
-  .login-page {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-  }
-  
-  .login-left-section {
-    padding: 1rem;
-  }
-  
-  .login-form-section {
-    padding: 1rem;
-  }
-  
-  .login-form-container {
-    max-width: 100%;
-    padding: 2rem 1.5rem;
-  }
-  
-  .login-form-container .login-title h2 {
-    font-size: 1.2rem;
-  }
-  
-  .login-text p {
-    font-size: 1.1rem;
-  }
+
   
   .logo-image {
     height: 50px;

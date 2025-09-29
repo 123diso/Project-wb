@@ -1,23 +1,11 @@
 /* RegisterPage Styles */
-.auth-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 2rem;
-}
-
-.register-page {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
 
 .auth-container {
   background: white;
   border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 1%;
   max-width: 450px;
   text-align: center;
 }
@@ -30,20 +18,16 @@
   margin-bottom: 2rem;
 }
 
-.logo-image {
-  max-width: 150px;
-  height: auto;
-}
 
 .welcome-message {
   margin-bottom: 2rem;
 }
 
 .welcome-message p {
-  color: #666;
-  font-size: 1.1rem;
+  color: var(--beige);
+  font-size: 1.3rem;
   line-height: 1.6;
-  margin: 0;
+  margin: 0 1rem 0 1rem;
 }
 
 .auth-switch {
