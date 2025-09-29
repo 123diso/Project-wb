@@ -28,7 +28,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ mode, onSuccess }) => {
 
     const result = mode === 'login' 
       ? await signIn({ email, password })
-      : await signUp({ email, password })
+      : await signUp({ email, password, fullName, username })
 
     if (result.success) {
       if (mode === 'register') {

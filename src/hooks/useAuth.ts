@@ -4,13 +4,15 @@ import { supabase } from '../supabaseClient'
 interface AuthData {
   email: string
   password: string
+  fullName?: string
+  username?: string
 }
 
 export const useAuthActions = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const signUp = async ({ email, password }: AuthData) => {
+  const signUp = async ({ email, password, fullName, username }: AuthData) => {
     try {
       setLoading(true)
       setError(null)
@@ -21,6 +23,12 @@ export const useAuthActions = () => {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          data: {
+            full_name: fullName,
+            username: username,
+          }
+        }
       })
 
       if (error) {

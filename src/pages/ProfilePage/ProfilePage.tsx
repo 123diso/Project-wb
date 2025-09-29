@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/useAuthContext'
 import { Navbar } from '../../components/Navbar/Navbar'
 import './ProfilePage.css'
@@ -90,12 +90,14 @@ export const ProfilePage: React.FC = () => {
         <div className="profile-info">
           <div className="profile-picture">
             <div className="avatar-large">
-              {user?.email?.charAt(0).toUpperCase()}
+              {(user?.user_metadata?.username || user?.user_metadata?.full_name || user?.email || 'U').charAt(0).toUpperCase()}
             </div>
           </div>
           
           <div className="profile-details">
-            <h1 className="profile-name">Tyrone Greyson</h1>
+            <h1 className="profile-name">
+              {user?.user_metadata?.username || user?.user_metadata?.full_name || 'Usuario'}
+            </h1>
             <p className="profile-posts">20 Posts</p>
             <div className="profile-rating">
               <span>Rating: 4.5</span>
