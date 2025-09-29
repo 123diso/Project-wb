@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ProductCard.css'
+import SaveButton from '../SaveButton/SaveButton'
 
 type ProductCardProps = {
   id: number
@@ -16,12 +17,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   title,
   category,
   condition,
-  location
+  location,
+  image
 }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    // Redirigir a la página de detalles del producto
     navigate(`/producto/${id}`)
   }
 
@@ -42,7 +43,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
       aria-label={`Ver detalles de ${title}`}
     >
       <div className="product-card__image">
-        <div className="product-card__image-placeholder"></div>
+        <div 
+          className="product-card__image-placeholder"
+          style={{ 
+            backgroundImage: image ? `url(${image})` : 'none',
+            backgroundColor: image ? 'transparent' : '#e9e6dc'
+          }}
+        ></div>
       </div>
       
       <div className="product-card__content">
@@ -53,6 +60,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="product-card__location">{location}</span>
         </div>
       </div>
+
+      <SaveButton 
+        id={id}
+        title={title}
+        image={image}
+        category={category}
+        condition={condition}
+        location={location}
+        />
     </div>
   )
 }

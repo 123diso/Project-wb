@@ -4,13 +4,16 @@ import Navbar from './components/Navbar/Navbar'
 import HomePage from './pages/HomePage/HomePage'
 import MapPage from './pages/MapPage/MapPage'
 import CategoriesPage from './pages/CategoriesPage/CategoriesPage'
+import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage'
+import { SavedProvider } from './contexts/SavedContext'
+import SavedPage from './pages/SavedPage/SavedPage'
 import './App.css'
 
 const Layout: React.FC = () => (
-    <>
+    <SavedProvider>
         <Navbar />
         <Outlet />
-    </>
+    </SavedProvider>
 )
 
 const router = createBrowserRouter([
@@ -19,8 +22,10 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
             { index: true, element: <HomePage /> },
-            { path: 'mapa', element: <MapPage /> }, // ← ahora son pages reales
+            { path: 'mapa', element: <MapPage /> },
             { path: 'categorias', element: <CategoriesPage /> },
+            { path: 'producto/:id', element: <ProductDetailPage /> },
+            { path: 'guardados', element: <SavedPage /> }, 
             {
                 path: '*',
                 element: (

@@ -73,3 +73,18 @@ export type CardUIProps = {
     showName?: boolean
 }
 export type SuggestedCardProps = CardData & CardUIProps
+
+// Context Types - AGREGAR ESTO
+export type AppContextType = {
+  currentPage: PageId
+  setCurrentPage: (page: PageId) => void
+}
+// Product Card Types
+export interface ProductCard {
+  id: number
+  title: string
+  category: string
+  condition: string
+  location: string
+  image?: string
+}
