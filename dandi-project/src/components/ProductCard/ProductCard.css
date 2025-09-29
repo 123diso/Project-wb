@@ -9,7 +9,7 @@
 /* ====== Card ====== */
 .product-card {
   position: relative;
-  width: 300px;                    /* ancho fijo */
+  width: 300px;
   background: var(--dandi-green);
   border-radius: 20px;
   overflow: hidden;
@@ -23,29 +23,27 @@
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
 }
 
-/* ====== Imagen arriba ====== */
 .product-card__image {
   padding: 16px 16px 0 16px;
 }
 
 .product-card__image-placeholder {
   width: 100%;
-  height: 190px;                   /* alto fijo */
+  height: 190px;
   border-radius: 16px;
-  background: #e9e6dc;             /* gris/beige claro */
+  background: #e9e6dc; 
   background-position: center;
   background-size: cover;
 }
 
-/* ====== Contenido ====== */
 .product-card__content {
-  padding: 12px 16px 22px 16px;    /* extra bottom para que no tape el bookmark */
+  padding: 12px 16px 22px 16px;
   display: grid;
   row-gap: 10px;
   color: var(--dandi-cream);
 }
 
-/* Título centrado dorado */
+
 .product-card__title {
   margin: 0;
   text-align: center;
@@ -87,18 +85,8 @@
   opacity: 0.95;
 }
 
-/* Bookmark esquina inferior derecha */
 .product-card::after {
-  content: "";
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 20px;
-  height: 20px;
-  background-color: var(--dandi-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><path d='M0 64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V512L192 400 0 512V64z'/></svg>") no-repeat center / contain;
-          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'><path d='M0 64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V512L192 400 0 512V64z'/></svg>") no-repeat center / contain;
-}
+   content: none; }
 
 .product-card:focus {
   outline: 2px solid var(--dandi-accent);
@@ -111,35 +99,34 @@
 }
 
 .product-card{
-  min-width: 260px;     /* evita que colapse en pantallas grandes */
+  min-width: 260px;  
 }
 .product-card__image-placeholder{
-  height: 190px;        /* mantiene el alto del mock */
+  height: 190px;   
 }
 .products-section__list .product-card {
   width: 100%;
-  min-width: 0;        /* evita overflow por min-width:260px */
+  min-width: 0; 
 }
 
-/* Mantén el alto del área de imagen */
 .products-section__list .product-card__image-placeholder {
   height: 190px;
 }
 .products-section__list .product-card {
   width: 100%;
   min-width: 0;
-  height: 380px;                 /* <-- alto unificado */
-  display: flex;                 /* para repartir imagen y contenido */
+  height: 380px; 
+  display: flex; 
   flex-direction: column;
 }
 
-/* El bloque de imagen mantiene altura fija */
+
 .products-section__list .product-card__image-placeholder {
-  flex: 0 0 190px;               /* mismo alto en todas */
+  flex: 0 0 190px; 
   height: 190px;
 }
 
-/* El contenido rellena lo que queda */
+
 .products-section__list .product-card__content {
   flex: 1;
   display: flex;
@@ -147,17 +134,15 @@
   justify-content: flex-start;
 }
 
-/* Título a 2 líneas máximo con altura constante */
 .product-card__title {
   line-height: 1.25;
-  min-height: calc(1.25em * 2);  /* reserva espacio para 2 líneas */
+  min-height: calc(1.25em * 2);  
   display: -webkit-box;
   
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Evita que categoría y ubicación agranden la tarjeta */
 .product-card__category,
 .product-card__location {
   white-space: nowrap;
@@ -165,7 +150,6 @@
   text-overflow: ellipsis;
 }
 
-/* Responsive: baja un poco el alto en móviles si lo necesitas */
 @media (max-width: 600px) {
   .products-section__list .product-card { height: 360px; }
   .products-section__list .product-card__image-placeholder { height: 170px; flex-basis: 170px; }

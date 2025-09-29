@@ -1,7 +1,7 @@
-// src/components/ProductCard/ProductCard.tsx (actualizar)
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ProductCard.css'
+import SaveButton from '../SaveButton/SaveButton'
 
 type ProductCardProps = {
   id: number
@@ -60,6 +60,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <span className="product-card__location">{location}</span>
         </div>
       </div>
+
+      <SaveButton 
+        id={id}
+        title={title}
+        image={image}
+        category={category}
+        condition={condition}
+        location={location}
+        />
     </div>
   )
 }
