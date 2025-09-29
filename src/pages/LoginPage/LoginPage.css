@@ -15,6 +15,28 @@
   color: white;
 }
 
+/* Enlaces en el formulario del login */
+.login-form-container .auth-switch {
+  border-top: 1px solid var(--orange-accent);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.login-form-container .auth-switch p {
+  color: var(--white);
+  margin: 0;
+}
+
+.login-form-container .auth-switch a {
+  color: var(--medium-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-form-container .auth-switch a:hover {
+  text-decoration: underline;
+}
+
 .logo-container {
   margin-bottom: 3rem;
 }

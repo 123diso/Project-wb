@@ -269,43 +269,7 @@ body {
   font-weight: 500;
 }
 
-/* Inputs en el formulario del login */
-.login-form-container .input {
 
-  color: var(--dark-green);
-  border: 1px solid var(--orange-accent);
-  padding: 0.75rem 1rem 0.75rem 3rem;
-}
-
-.login-form-container .input:focus {
-  outline: none;
-  border-color: var(--medium-green);
-  box-shadow: 0 0 0 2px rgba(74, 124, 89, 0.1);
-}
-
-.login-form-container .input::placeholder {
-  color: #999;
-}
-
-.login-form-container .input-icon {
-  color: var(--dark-green);
-}
-
-/* Inputs en el formulario de registro (centrado) */
-.register-container .input {
-  padding: 0.75rem 1rem 0.75rem 3rem;
-}
-
-.register-container .input:focus {
-  outline: none;
-  border-color: var(--orange-accent);
-  box-shadow: 0 0 0 2px rgba(230, 184, 140, 0.2);
-}
-
-.register-container .input::placeholder {
-  color: var(--white);
-  opacity: 0.8;
-}
 
 .auth-button {
   background: var(--orange-accent);
@@ -321,59 +285,8 @@ body {
   width: 100%;
 }
 
-/* Botón en el formulario del login */
-.login-form-container .auth-button {
-  background: var(--orange-accent);
-  color: var(--white);
-}
 
-.login-form-container .auth-button:hover:not(:disabled) {
-  background: #d4a574;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(230, 184, 140, 0.3);
-}
 
-/* Botón en el formulario de registro (centrado) */
-.register-container .auth-button:hover:not(:disabled) {
-  background: #d4a574;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(230, 184, 140, 0.3);
-}
-
-.auth-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.auth-switch {
-  text-align: center;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--orange-accent);
-}
-
-/* Enlaces en el formulario del login */
-.login-form-container .auth-switch {
-  border-top: 1px solid var(--orange-accent);
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-}
-
-.login-form-container .auth-switch p {
-  color: var(--white);
-  margin: 0;
-}
-
-.login-form-container .auth-switch a {
-  color: var(--medium-green);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.login-form-container .auth-switch a:hover {
-  text-decoration: underline;
-}
 
 /* Enlaces en el formulario de registro (centrado) */
 .register-container .auth-switch p {

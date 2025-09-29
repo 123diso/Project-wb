@@ -10,8 +10,26 @@
   text-align: center;
 }
 
-.register-container {
-  max-width: 500px;
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--orange-accent);
+}
+
+.register-container .input {
+  padding: 0.75rem 1rem 0.75rem 3rem;
+}
+
+.register-container .input:focus {
+  outline: none;
+  border-color: var(--orange-accent);
+  box-shadow: 0 0 0 2px rgba(230, 184, 140, 0.2);
+}
+
+.register-container .input::placeholder {
+  color: var(--white);
+  opacity: 0.8;
 }
 
 .logo-container {
