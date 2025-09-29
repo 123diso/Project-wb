@@ -46,29 +46,3 @@
     flex-wrap: wrap;
     padding: 6px 2px 4px;
 }
-
-/* Agregar al archivo suggested.css */
-.products-section {
-  padding: 18px 20px;
-}
-
-.products-section__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.products-section__title {
-  margin: 0;
-  font-size: 1.8rem;
-  line-height: 1;
-  color: #2f3e2f;
-  font-weight: 700;
-}
-
-.products-section__list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}

@@ -1,14 +1,14 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
 import HomePage from './pages/HomePage/HomePage'
-import ProductCard from "./components/ProductCard/ProductCard";
-import ProductDetail from "./pages/ProductDetail";
+import MapPage from './pages/MapPage/MapPage'
+import CategoriesPage from './pages/CategoriesPage/CategoriesPage'
 import './App.css'
-import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage'
 
 const Layout: React.FC = () => (
     <>
-    
+        <Navbar />
         <Outlet />
     </>
 )
@@ -19,9 +19,8 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
             { index: true, element: <HomePage /> },
-            {/*{ path: 'mapa', element: <MapPage /> }, // ← ahora son pages reales
-            { path: 'categorias', element: <CategoriesPage /> },*/},
-            { path: 'producto/:id', element: <ProductDetailPage /> },
+            { path: 'mapa', element: <MapPage /> }, // ← ahora son pages reales
+            { path: 'categorias', element: <CategoriesPage /> },
             {
                 path: '*',
                 element: (
