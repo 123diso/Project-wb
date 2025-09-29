@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// src/App.tsx
+import React from 'react'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import HomePage from './pages/HomePage/HomePage'
+import MapPage from './pages/MapPage/MapPage'
+import CategoriesPage from './pages/CategoriesPage/CategoriesPage'
+import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage' // ← Agregar esta importación
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+const Layout: React.FC = () => (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <Navbar />
+        <Outlet />
     </>
-  )
-}
+)
 
-export default App
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Layout />,
+        children: [
+            { index: true, element: <HomePage /> },
+            { path: 'mapa', element: <MapPage /> },
+            { path: 'categorias', element: <CategoriesPage /> },
+            { path: 'producto/:id', element: <ProductDetailPage /> }, // ← Nueva ruta
+            {
+                path: '*',
+                element: (
+                    <main style={{ padding: 24 }}>Página no encontrada</main>
+                ),
+            },
+        ],
+    },
+])
+
+export default function App() {
+    return <RouterProvider router={router} />
+}

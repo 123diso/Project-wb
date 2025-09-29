@@ -1,0 +1,34 @@
+.map-banner {
+  background: linear-gradient(135deg, #2c371c 0%, #4a5c3a 100%);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  color: white;
+}
+
+.map-banner__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.map-banner__title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.map-banner__button {
+  background: #eab279;
+  color: #2c371c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.map-banner__button:hover {
+  background: #d9955d;
+}
