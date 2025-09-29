@@ -52,8 +52,7 @@
 }
 
 .navbar-icons img {
-    width: 17%;
-    height: 17%;
+    width: 2rem;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.2s ease;
