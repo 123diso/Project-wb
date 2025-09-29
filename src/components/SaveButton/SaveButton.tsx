@@ -27,8 +27,6 @@ const SaveButton: React.FC<SaveButtonProps> = ({
   return (
     <button
       className={`save-btn ${saved ? 'is-saved' : ''} ${className ?? ''}`}
-      aria-pressed={saved}
-      aria-label={saved ? 'Quitar de guardados' : 'Guardar'}
       onClick={onClick}
       style={{ width: size, height: size }}
     >
