@@ -1,7 +1,0 @@
-[
-    { "id": 1, "name": "iPhone", "image": "/images/iphone.jpg" },
-    { "id": 2, "name": "Cámaras", "image": "/images/camera.jpg" },
-    { "id": 3, "name": "Anillo", "image": "/images/ring.jpg" },
-    { "id": 4, "name": "Peluche", "image": "/images/plush.jpg" },
-    { "id": 5, "name": "Rueda", "image": "/images/wheel.jpg" }
-]
