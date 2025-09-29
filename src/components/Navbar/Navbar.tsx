@@ -53,7 +53,13 @@ const Navbar: React.FC = () => {
 
             <div className="navbar-icons">
                 {navIcons.map(({ id, src, alt }) => (
-                    <img key={id} src={src} alt={alt} />
+                    alt === 'User' ? (
+                        <NavLink key={id} to="/profile">
+                            <img src={src} alt={alt} />
+                        </NavLink>
+                    ) : (
+                        <img key={id} src={src} alt={alt} />
+                    )
                 ))}
             </div>
         </nav>

@@ -1,11 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, Navigate } from 'react-router-dom'
+import { useAuth } from '../../context/useAuthContext'
 import { AuthForm } from '../../components/AuthForm/AuthForm'
 import DandiLogo from '../../assets/loginlogo.png'
 import LargeDandiLogo from '../../assets/largeloginlogo.png'
 import './LoginPage.css'
 
 export const LoginPage: React.FC = () => {
+  const navigate = useNavigate()
+  const { user, loading } = useAuth()
+
+  if (!loading && user) {
+    return <Navigate to="/" replace />
+  }
+
   return (
     <div className="auth-page login-page">
       <div className="login-left-section">
@@ -26,7 +34,7 @@ export const LoginPage: React.FC = () => {
           <div className="login-title">
             <h2>Inicia sesión y empieza a descubrir trueques cerca de ti.</h2>
           </div>
-          <AuthForm mode="login" />
+          <AuthForm mode="login" onSuccess={() => navigate('/')} />
           <div className="forgot-password">
             <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
           </div>

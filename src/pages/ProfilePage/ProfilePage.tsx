@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/useAuthContext'
-import { Navbar } from '../../components/Navbar/Navbar'
 import './ProfilePage.css'
 
 export const ProfilePage: React.FC = () => {
@@ -78,8 +77,6 @@ export const ProfilePage: React.FC = () => {
 
   return (
     <div className="profile-page">
-      <Navbar />
-      
       <div className="profile-content">
         {/* Banner */}
         <div className="profile-banner">
