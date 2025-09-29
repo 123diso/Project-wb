@@ -23,9 +23,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     return (
         <div className="search-section">
             <form onSubmit={handleSubmit} className="search-form">
-                {/* 👇 mantenemos la imagen de lupa y el mismo CSS */}
                 <img src="/search.png" alt="Buscar" />
-                {/* Si tu ruta anterior era /icons/search.png, cámbiala aquí sin tocar el CSS */}
                 <input
                     type="text"
                     placeholder={placeholder}
