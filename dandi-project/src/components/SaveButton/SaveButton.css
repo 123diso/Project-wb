@@ -1,6 +1,5 @@
-/* Botón simple y reusable */
 .save-btn{
-  position: absolute;          /* esquina inferior derecha de la card */
+  position: absolute;
   right: 16px;
   bottom: 16px;
   background: transparent;
@@ -13,7 +12,7 @@
 
 .save-btn svg{
   display: block;
-  fill: transparent;           /* contorno */
+  fill: transparent; 
   stroke: currentColor;
   stroke-width: 28;
   stroke-linejoin: round;
