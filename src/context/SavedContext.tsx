@@ -113,7 +113,7 @@ export const SavedProvider: React.FC<React.PropsWithChildren> = ({ children }) =
         .eq('user_id', user.id)
         .eq('post_id', postIdValue)
       if (error) {
-        console.error('[saved_post delete error]:', { code: (error as any).code, message: (error as any).message, details: (error as any).details })
+       
         return
       }
       setSaved(prev => {
@@ -133,7 +133,7 @@ export const SavedProvider: React.FC<React.PropsWithChildren> = ({ children }) =
         .from('saved_post')
         .insert({ ...insertPayload })
       if (error) {
-        console.error('[saved_post insert error]:', { code: (error as any).code, message: (error as any).message, details: (error as any).details, payload: insertPayload })
+       
         return
       }
       setSaved(prev => {
