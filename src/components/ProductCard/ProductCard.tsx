@@ -26,21 +26,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
     navigate(`/producto/${id}`)
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      handleClick()
-    }
-  }
 
   return (
     <div 
       className="product-card"
       onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="button"
-      aria-label={`Ver detalles de ${title}`}
     >
       <div className="product-card__image">
         <div 
